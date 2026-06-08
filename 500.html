@@ -1,15 +1,254 @@
 <!doctype html>
 <html lang="ja">
+<head>
 <meta charset="utf-8">
 <title>500 Internal Server Error</title>
 <style>
-body{text-align:center;font-family:sans-serif;margin:0}
-h1{background:#333;color:white;margin:0;padding:1em}
-.dummy{font-size:128px}
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#f7f7f4;
+  font-family:"Courier New",monospace;
+  color:#16283a;
+}
+.wrap{
+  width:90%;
+  max-width:1050px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+}
+h1{
+  margin:0;
+  font-size:150px;
+  line-height:.8;
+  letter-spacing:6px;
+  text-shadow:6px 6px 0 #d8e0e5;
+}
+h2{
+  margin:25px 0 35px;
+  font-size:34px;
+}
+p{
+  font-family:sans-serif;
+  font-size:22px;
+  line-height:1.8;
+  color:#111;
+}
+.cat-area{
+  display:flex;
+  align-items:flex-end;
+  gap:40px;
+}
+.cat{
+  position:relative;
+  width:260px;
+  height:330px;
+}
+.head{
+  position:absolute;
+  top:40px;
+  left:35px;
+  width:190px;
+  height:170px;
+  background:#fff;
+  border:8px solid #16283a;
+  border-radius:45% 45% 40% 40%;
+}
+.head:before,.head:after{
+  content:"";
+  position:absolute;
+  top:-55px;
+  width:70px;
+  height:80px;
+  background:#7890a0;
+  border:8px solid #16283a;
+}
+.head:before{
+  left:5px;
+  clip-path:polygon(0 100%,50% 0,100% 100%);
+}
+.head:after{
+  right:5px;
+  clip-path:polygon(0 100%,50% 0,100% 100%);
+}
+.face-top{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:80px;
+  background:#7890a0;
+  border-radius:35px 35px 0 0;
+  clip-path:polygon(0 0,100% 0,80% 100%,50% 55%,20% 100%);
+}
+.eye{
+  position:absolute;
+  top:92px;
+  width:18px;
+  height:42px;
+  background:#16283a;
+  border-radius:50%;
+}
+.eye.l{left:55px}
+.eye.r{right:55px}
+.nose{
+  position:absolute;
+  top:130px;
+  left:85px;
+  width:26px;
+  height:18px;
+  background:#16283a;
+  clip-path:polygon(0 0,100% 0,50% 100%);
+}
+.mouth{
+  position:absolute;
+  top:158px;
+  left:72px;
+  width:48px;
+  height:25px;
+  background:#f28b55;
+  border:6px solid #16283a;
+  border-radius:0 0 30px 30px;
+}
+.body{
+  position:absolute;
+  bottom:0;
+  left:58px;
+  width:145px;
+  height:165px;
+  background:#fff;
+  border:8px solid #16283a;
+  border-radius:45% 45% 25% 25%;
+}
+.paw{
+  position:absolute;
+  top:190px;
+  width:55px;
+  height:85px;
+  background:#fff;
+  border:8px solid #16283a;
+  border-radius:50%;
+}
+.paw.l{left:45px}
+.paw.r{right:45px}
+.tail{
+  position:absolute;
+  bottom:20px;
+  left:0;
+  width:80px;
+  height:110px;
+  border:18px solid #7890a0;
+  border-right:0;
+  border-top:0;
+  border-radius:0 0 0 80px;
+}
+.sweat{
+  position:absolute;
+  color:#fff;
+  font-size:34px;
+  font-weight:bold;
+}
+.s1{top:70px;left:35px}
+.s2{top:92px;right:25px}
+.s3{top:130px;left:75px}
+.alert{
+  position:absolute;
+  top:0;
+  left:105px;
+  font-size:48px;
+  color:#16283a;
+}
+.server{
+  position:relative;
+  width:120px;
+  height:190px;
+  background:#283d50;
+  border:8px solid #16283a;
+  box-shadow:15px 15px 0 #c7d3da;
+}
+.server:before{
+  content:"";
+  position:absolute;
+  top:-110px;
+  left:30px;
+  width:70px;
+  height:100px;
+  background:#7890a0;
+  border-radius:50%;
+  box-shadow:25px -20px 0 #7890a0,-20px -30px 0 #7890a0;
+  opacity:.9;
+}
+.line{
+  position:absolute;
+  left:25px;
+  width:70px;
+  height:8px;
+  background:#16283a;
+}
+.line.a{top:55px}
+.line.b{top:95px}
+.line.c{top:135px}
+.light{
+  position:absolute;
+  left:20px;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+}
+.light.o{top:70px;background:#f28b55}
+.light.y{top:105px;background:#f4d35e}
+@media(max-width:800px){
+  .wrap{flex-direction:column;text-align:center}
+  h1{font-size:100px}
+  h2{font-size:24px}
+  p{font-size:18px}
+}
 </style>
+</head>
 <body>
-<h1>500 Internal Server Error</h1>
-<div class="dummy">💥</div>
-<p>サーバの中でなんか壊れたわ。</p>
+<div class="wrap">
+  <main>
+    <h1>500</h1>
+    <h2>Internal Server Error</h2>
+    <p>
+      サーバーでエラーが発生しました。<br>
+      しばらく時間をおいてから、再度お試しください。<br>
+      ご不便をおかけして申し訳ございません。
+    </p>
+  </main>
+
+  <div class="cat-area">
+    <div class="cat">
+      <div class="alert">|||</div>
+      <div class="tail"></div>
+      <div class="body"></div>
+      <div class="paw l"></div>
+      <div class="paw r"></div>
+      <div class="head">
+        <div class="face-top"></div>
+        <div class="eye l"></div>
+        <div class="eye r"></div>
+        <div class="nose"></div>
+        <div class="mouth"></div>
+        <div class="sweat s1">し</div>
+        <div class="sweat s2">し</div>
+        <div class="sweat s3">し</div>
+      </div>
+    </div>
+
+    <div class="server">
+      <div class="light o"></div>
+      <div class="light y"></div>
+      <div class="line a"></div>
+      <div class="line b"></div>
+      <div class="line c"></div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
